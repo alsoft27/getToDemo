@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Get Together</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Together Details</h2>
+    <div>
+   			<form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${together.id}">Id</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${together.name}">Name</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${together.description}">Description</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Place:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${together.place}">place</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                	<label class="col-sm-2 control-label">Guests:</label>
+		            <div class="col-sm-10">
+			            <table class="table table-striped">
+				            <tr>
+				                <th>Id</th>
+				                <th>Name</th>
+				                <th>Type</th>
+				                <th>Answer</th>
+				            </tr>
+				            <tr th:each="guest : ${together.guests}">
+				                <td th:text="${guest.id}">Id</td>
+				                <td th:text="${guest.name}">Name</td>
+				                <td th:text="${guest.type}">type</td>
+				                <td>
+				                <div th:switch="${guest.answer}">
+								  <p th:case="null">doesn't know</p>
+								  <p th:case="true">Yes</p>
+								  <p th:case="false">No</p>
+								</div>
+				                </td>
+				            </tr>
+				        </table>
+			        </div>
+		        </div>
+            </form>       
+    </div>
+</div>
+</body>
+</html>

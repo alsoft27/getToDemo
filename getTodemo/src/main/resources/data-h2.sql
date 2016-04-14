@@ -1,0 +1,1 @@
+insert into user (id, name, email) values (null, 'Rick', 'rick@mail.com')

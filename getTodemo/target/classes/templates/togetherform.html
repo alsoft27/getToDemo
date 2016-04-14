@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Get Together</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Together Details</h2>
+    <div>
+ 		<form class="form-horizontal" th:object="${together}" th:action="@{/together}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <!-- input type="hidden" th:field="*{version}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Id:</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" th:field="*{id}"/>
+                </div>
+            </div-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{name}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{description}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Place:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{place}"/>
+                </div>
+            </div>
+            <div class="form-group">
+            	<label class="col-sm-2 control-label">Guests:</label>
+            	<div class="col-sm-5" id="fields">
+            		<input type="hidden" name="sw" id="sw" value ="0"/>
+            		<div class="controls"> 
+	                    <div class="entry input-group">
+	                        <input class="form-control" type="text" id="guest" th:field="*{guests[0].name}" placeholder="Name" />
+	                    	<span class="input-group-btn">
+	                            <button class="btn btn-success btn-add" type="button">
+	                                <span class="glyphicon glyphicon-plus"></span>
+	                            </button>
+	                        </span>
+	                        <br></br>
+	                    </div>
+		            </div>
+		        </div>
+		    </div>    
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+$(function()
+{
+    $(document).on('click', '.btn-add', function(e)
+    {
+        e.preventDefault();
+        if($("#sw") != null){
+        	var cont = parseInt($("#sw").val());
+    		$('#sw').attr('value',cont+1);
+    		//alert("hola sw "+$('#sw').val());	
+        }
+		
+        var control = $('.controls'),
+            currentEntry = $(this).parents('.entry:first'),
+            newEntry = $(currentEntry.clone()).appendTo(control);
+
+        newEntry.find('input').val('');
+        control.find('.entry:not(:last) .btn-add')
+            .removeClass('btn-add').addClass('btn-remove')
+            .removeClass('btn-success').addClass('btn-danger')
+            .html('<span class="glyphicon glyphicon-minus"></span>');
+    }).on('click', '.btn-remove', function(e)
+    {
+		$(this).parents('.entry:first').remove();
+
+		e.preventDefault();
+		return false;
+	});
+});
+
+</script>
+</body>
+</html>

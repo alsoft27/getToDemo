@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Get Together</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(togethers)}">
+        <h2>Togethers List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Place</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="togetherDTO : ${togethers}">
+                <td th:text="${togetherDTO.id}"><a href="/togethers/${togetherDTO.id}">Together Id</a></td>
+                <td th:text="${togetherDTO.name}">Name</td>
+                <td th:text="${togetherDTO.description}">Description</td>
+                <td th:text="${togetherDTO.place}">Place</td>
+                <td><a th:href="${'/togethers/' + togetherDTO.id}">View</a></td>
+                <td><a th:href="${'/togethers/edit/' + togetherDTO.id}">Edit</a></td>
+                <td><a th:href="${'/togethers/delete/' + togetherDTO.id}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>

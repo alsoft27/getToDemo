@@ -1,0 +1,9 @@
+ ${AnsiColor.BRIGHT_YELLOW}     ___                         ___           ___           ___               
+     o      ooooo        oooooooo8    ooooooo  ooooooooooo ooooooooooo 
+    888      888        888         o888   888o 888    88  88  888  88 
+   8  88     888         888oooooo  888     888 888ooo8        888     
+  8oooo88    888      o         888 888o   o888 888            888     
+o88o  o888o o888ooooo88 o88oooo888    88ooo88  o888o          o888o    
+                                                                        
+
+      :: ALSOFT ::  ${spring-boot.formatted-version}

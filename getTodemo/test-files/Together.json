@@ -1,0 +1,24 @@
+{
+   "id": null,
+   "name": "quedada",
+   "description": "prueba",
+   "place": "el sitio",
+   "creator": {
+      "id": 1,
+      "name": "rick",
+      "email": "rick@mail.com"
+   },
+   "guests": [
+      {
+         "id": null,
+         "name": "Daryl",
+         "type": "wsap"
+      },
+      {
+         "id": null,
+         "name": "Gleen",
+         "type": "wsap"
+      }
+   ],
+   "guestsAnswer": null
+}
