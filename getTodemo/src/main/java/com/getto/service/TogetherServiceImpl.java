@@ -20,6 +20,9 @@ public class TogetherServiceImpl implements TogetherService {
     @Autowired
     private TogetherFactory factory;
 
+    // @Autowired
+    // private EmailSender emailSender;
+
     @Override
     public List<TogetherDTO> listAlltogethers() {
         Iterable<Together> togs = togetherRepository.findAll();
@@ -46,6 +49,16 @@ public class TogetherServiceImpl implements TogetherService {
     public TogetherDTO saveTogether(TogetherDTO togetherDTO) {
         Together tog = factory.convertToTogether(togetherDTO);
         tog = togetherRepository.save(tog);
+
+        // send email
+        // try {
+        // emailSender.send("alsoft27@gmail.com", "geto", "te invito a
+        // participar http://localhost:8080/togethers/1/1");
+        // } catch (MessagingException e) {
+        // // TODO Auto-generated catch block
+        // e.printStackTrace();
+        // }
+
         return factory.convertToTogetherDTO(tog);
     }
 

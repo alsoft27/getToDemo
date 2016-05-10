@@ -21,5 +21,7 @@ public class GuestDTO {
 
     @Mapping("together.id")
     private Long together;
+    
+    private String email;
 
 }
