@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.getto.TogetherTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.177 sec - in com.getto.TogetherTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.067 sec - in com.getto.TogetherTest

@@ -46,6 +46,7 @@
             		<div class="controls"> 
 	                    <div class="entry input-group">
 	                        <input class="form-control" type="text" id="guest" th:field="*{guests[0].name}" placeholder="Name" />
+<!-- 	                        <input class="form-control" type="text" id="guest" th:field="*{guests[0].email}" placeholder="Email" /> -->
 	                    	<span class="input-group-btn">
 	                            <button class="btn btn-success btn-add" type="button">
 	                                <span class="glyphicon glyphicon-plus"></span>
@@ -71,7 +72,6 @@ $(function()
         if($("#sw") != null){
         	var cont = parseInt($("#sw").val());
     		$('#sw').attr('value',cont+1);
-    		//alert("hola sw "+$('#sw').val());	
         }
 		
         var control = $('.controls'),
