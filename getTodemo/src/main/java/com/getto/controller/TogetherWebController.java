@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.getto.dto.GuestDTO;
 import com.getto.dto.TogetherDTO;
@@ -24,7 +23,7 @@ public class TogetherWebController {
     @Autowired
     private GuestService guestService;
 
-    @RequestMapping(value = "/togethers", method = RequestMethod.GET)
+    @RequestMapping(value = "/togethers")
     public String list(Model model) {
         List<TogetherDTO> res = togetherService.listAlltogethers();
         model.addAttribute("togethers", res);
@@ -46,7 +45,7 @@ public class TogetherWebController {
         return "togetheranswer";
     }
 
-    @RequestMapping(value = "together", method = RequestMethod.POST)
+    @RequestMapping(value = "together")
     public String saveTogether(TogetherDTO togetherDTO) {
         if (togetherDTO.getGuests() != null) {
             List<GuestDTO> guests = new ArrayList<GuestDTO>();
@@ -80,7 +79,7 @@ public class TogetherWebController {
         return "togetherform";
     }
 
-    @RequestMapping(value = "saveGuestAnswerTog", method = RequestMethod.POST)
+    @RequestMapping(value = "saveGuestAnswerTog")
     public String saveGuestAnswer(TogetherDTO togetherDTO) {
         GuestDTO guest = guestService.findGuestById(togetherDTO.getAnswerer());
         guest.setAnswer(togetherDTO.getAnswer().equals("Y") ? true : togetherDTO.getAnswer().equals("N") ? false : null);

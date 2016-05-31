@@ -18,8 +18,8 @@
                 <th>Description</th>
                 <th>Place</th>
                 <th>View</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <!-- th>Edit</th-->
+                <!-- th>Delete</th-->
             </tr>
             <tr th:each="togetherDTO : ${togethers}">
                 <td th:text="${togetherDTO.id}"><a href="/togethers/${togetherDTO.id}">Together Id</a></td>
@@ -27,8 +27,8 @@
                 <td th:text="${togetherDTO.description}">Description</td>
                 <td th:text="${togetherDTO.place}">Place</td>
                 <td><a th:href="${'/togethers/' + togetherDTO.id}">View</a></td>
-                <td><a th:href="${'/togethers/edit/' + togetherDTO.id}">Edit</a></td>
-                <td><a th:href="${'/togethers/delete/' + togetherDTO.id}">Delete</a></td>
+                <!-- td><a th:href="${'/togethers/edit/' + togetherDTO.id}">Edit</a></td-->
+                <!-- td><a th:href="${'/togethers/delete/' + togetherDTO.id}">Delete</a></td-->
             </tr>
         </table>
 
