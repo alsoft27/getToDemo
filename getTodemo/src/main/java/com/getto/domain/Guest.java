@@ -39,6 +39,8 @@ public class Guest implements Serializable {
 
     private Boolean answer;
 
+    private String email;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "together_id", referencedColumnName = "id")
     private Together together;

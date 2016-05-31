@@ -51,14 +51,14 @@ public class TogetherWebController {
             List<GuestDTO> guests = new ArrayList<GuestDTO>();
             for (GuestDTO guestNames : togetherDTO.getGuests()) {
                 String[] names = guestNames.getName().split(",");
-                // String[] emails = guestNames.getEmail().split(",");
-                // int sw = 0;
+                String[] emails = guestNames.getEmail().split(",");
+                int sw = 0;
                 for (String name : names) {
                     GuestDTO guest = new GuestDTO();
                     guest.setName(name);
-                    // guest.setEmail(emails[sw]);
+                    guest.setEmail(emails[sw]);
                     guests.add(guest);
-                    // sw++;
+                    sw++;
                 }
             }
             togetherDTO.setGuests(guests);
